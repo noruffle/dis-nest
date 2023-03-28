@@ -17,8 +17,8 @@ export class CatsService {
   }
 
   // POST
-  create (cat: Cat) {
-    this.cats.push(cat);
+  create (newie: IForCat) {
+    this.cat.push(newie);
   }
 
   // PATCH
