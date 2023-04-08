@@ -6,6 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prisma:dev:deploy": "npx prisma generate",
+    "db:dev:rm": "docker compose rm app-dev -s -f -v",
+    "db:dev:up": "docker compose up app-dev -d",
+    "db:dev:restart": "yarn db:dev:rm && yarn db:dev:up && yarn prisma:dev:deploy",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "dev": "nest start --watch",
@@ -28,6 +32,7 @@
     "argon2": "^0.30.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "docker": "^1.0.0",
     "mongoose": "^7.0.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
