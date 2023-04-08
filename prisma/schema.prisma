@@ -20,7 +20,7 @@ model User {
   hash  String
 
   name  String?
-  login String
+  login String?
 }
 
 model Anime {

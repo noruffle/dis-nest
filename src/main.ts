@@ -5,7 +5,9 @@ import { ValidationPipe } from '@nestjs/common';
 async function app() {
   const app = await NestFactory.create(Engine)
   
-  app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true
+  }))
   
   await app.listen(process.env.PORT)
 }
