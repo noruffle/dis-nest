@@ -1,22 +1,14 @@
-import {Module, NestModule, MiddlewareConsumer} from '@nestjs/common';
-import {LoggerMiddleware} from './logger.middleware';
-import {CatsModule} from './cats/cats.module';
+import {Module} from '@nestjs/common';
 import {MongooseModule} from '@nestjs/mongoose'
-import { CatsController } from './cats/cats.controller';
+import { Auth } from './auth/auth.module';
+import { Users } from './users/users.module';
 
 @Module({
 
   imports: [
-    MongooseModule.forRoot('mongodb+srv://ruffle:7112812kreZ@cluster-ruffle.vplqcb5.mongodb.net/users?retryWrites=true&w=majority'),
-    CatsModule,
+    Auth, Users,
+    MongooseModule.forRoot('mongodb+srv://ruffle:7112812kreZ@cluster-ruffle.vplqcb5.mongodb.net/users?retryWrites=true&w=majority')
   ],
   
 })
-
-export class appModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(LoggerMiddleware)
-      .forRoutes(CatsController);
-  }
-}
+export class Engine{}

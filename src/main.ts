@@ -1,10 +1,9 @@
 import {NestFactory} from '@nestjs/core'
-import {appModule} from './app.module';
+import {Engine} from './app.module';
 
 async function app() {
-  const app = await NestFactory.create(appModule)
-
-  app.listen(process.env.PORT, () => console.log('App is up'))
+  const app = await NestFactory.create(Engine)
+  await app.listen(process.env.PORT)
 }
 
 app()
