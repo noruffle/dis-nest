@@ -16,11 +16,15 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()
 
-  email String
+  email String @unique
   hash  String
 
   name  String?
   login String?
+  role  Role    @default(USER)
+  anime Anime[]
+
+  @@map("user")
 }
 
 model Anime {
@@ -32,4 +36,15 @@ model Anime {
   title       String
   description String?
   link        String
+
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@map("anime")
+}
+
+enum Role {
+  ADMIN
+  MODER
+  USER
 }
