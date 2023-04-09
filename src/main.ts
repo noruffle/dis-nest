@@ -13,11 +13,3 @@ async function app() {
 }
 
 app()
-
-{
-  PROTOCOL: 'mongodb+srv';
-  USERNAME: 'ruffle';
-  PASSWORD: '7112812kreZ';
-  HOST: "cluster-ruffle.vplqcb5.mongodb.net";
-  DATABASE: 'ruffle'
-}
