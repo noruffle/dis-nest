@@ -4,6 +4,7 @@ import { Users } from "./users/users.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { ConfigModule } from "@nestjs/config";
 import { JwtModule } from "@nestjs/jwt";
+import { Home } from "./app.controller";
 
 @Module({
   imports: [
@@ -15,5 +16,6 @@ import { JwtModule } from "@nestjs/jwt";
     Users,
     PrismaModule,
   ],
+  controllers: [Home]
 })
 export class Engine {}
